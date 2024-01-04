@@ -1,3 +1,4 @@
+import torch, random
 prompt = "scarlett johansson, girl sitting on kitchen bar, thighs separated, high res, 4k, cinematic, black hair, face fix" #@param {type: "string"}
 negative_prompt = "bad anatomy, bad eye, bad body parts, bad face" #@param {type: "string"}
 
