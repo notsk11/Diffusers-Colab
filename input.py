@@ -1,4 +1,9 @@
-import torch, random
+import torch
+from IPython.display import clear_output
+from diffusers import AutoPipelineForText2Image
+from diffusers import DiffusionPipeline
+import random, sys
+import mediapy as media
 prompt = "scarlett johansson, girl sitting on kitchen bar, thighs separated, high res, 4k, cinematic, black hair, face fix" #@param {type: "string"}
 negative_prompt = "bad anatomy, bad eye, bad body parts, bad face" #@param {type: "string"}
 
