@@ -1,3 +1,4 @@
+css = """
 .ckpt-box {
     position: absolute;
     left: 0px;
@@ -134,3 +135,4 @@
     min-width: 63em !important;
     height: 42em;
 }
+"""
