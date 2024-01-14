@@ -25,6 +25,7 @@ def loadmodel(modeloptions):
         set_alpha_to_one=False,
         steps_offset=1
     )
+    global pipe
     pipe = DiffusionPipeline.from_pretrained(
         modeloptions,
         torch_dtype=torch.float16,
