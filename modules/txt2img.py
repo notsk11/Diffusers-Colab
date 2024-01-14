@@ -4,9 +4,13 @@ import random
 import sys
 from PIL import Image
 import numpy as np
+from diffusers import DiffusionPipeline
 from diffusers.utils import load_image
-
+from modules import models
+# Set an initial value for the pipe variable
+pipe = models.loadmodel("digiplay/Realisian_v5")
 def txt2img(prompt, negative_prompt, width, height, num_inference_steps, guidance_scale, seed):
+    global pipe  # Use the global variable pipe
     # Seed randomizer
     if seed == "":
         seed = random.randint(0, sys.maxsize)
