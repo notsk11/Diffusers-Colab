@@ -1,12 +1,13 @@
-# Import the modules module
+# Import the modules 
 import modules
 from modules import txt2img
 from modules import models
 from modules import pipelines
+from modules import style
 import gradio as gr
 from gradio.themes.base import Base
 import time
-with gr.Blocks(css="/content/style.css") as demo:
+with gr.Blocks(css=modules.style.css) as demo:
     gr.Markdown("Stable Diffusion")
     modeloptions = gr.Dropdown(container=False, show_label=False, choices=models.modelnames, elem_classes='ckpt-box')
     loadbutton = gr.Button("Load", elem_classes='load')
