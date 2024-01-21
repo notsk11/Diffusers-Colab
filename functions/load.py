@@ -1,6 +1,4 @@
 # /content/functions/load.py
-# load.py
-
 from diffusers import DiffusionPipeline
 
 class CustomDiffusionLoader:
