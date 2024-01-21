@@ -56,10 +56,10 @@ css = """
     position: absolute;
     background-color: tramsparent;
     left: -13px;
-    top: 85px;
+    top: 260px;
     max-width: 20.4em;
     min-width: 20.4em !important;
-    height: 6em;
+    height: 7em;
 }
 .b-count {
     position: absolute;
@@ -86,7 +86,7 @@ css = """
     top: 90px;
     max-width: 10em;
     min-width: 10em !important;
-    height: 6em;
+    height: 8em;
 }
 .height {
     position: absolute;
@@ -95,16 +95,16 @@ css = """
     top: 90px;
     max-width: 10.3em;
     min-width: 10.3em !important;
-    height: 6em;
+    height: 8em;
 }
 .guidance {
     position: absolute;
     background-color: tramsparent;
     left: -13px;
-    top: 170px;
+    top: 190px;
     max-width: 20.4em;
     min-width: 20.4em !important;
-    height: 6em;
+    height: 5em;
 }
 .inp-seed {
     position: absolute;
