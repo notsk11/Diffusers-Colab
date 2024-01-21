@@ -83,7 +83,7 @@ css = """
     position: absolute;
     background-color: tramsparent;
     left: -13px;
-    top: 250px;
+    top: 90px;
     max-width: 10em;
     min-width: 10em !important;
     height: 6em;
@@ -92,7 +92,7 @@ css = """
     position: absolute;
     background-color: tramsparent;
     left: 127px;
-    top: 250px;
+    top: 90px;
     max-width: 10.3em;
     min-width: 10.3em !important;
     height: 6em;
@@ -101,7 +101,7 @@ css = """
     position: absolute;
     background-color: tramsparent;
     left: -13px;
-    top: 169px;
+    top: 170px;
     max-width: 20.4em;
     min-width: 20.4em !important;
     height: 6em;
