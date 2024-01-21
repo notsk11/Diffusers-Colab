@@ -12,7 +12,9 @@ modelnames = [
     ("imagepipeline/Realities-Edge-XL", "imagepipeline/Realities-Edge-XL"),
     ("stablediffusionapi/realisian111", "stablediffusionapi/realisian111")
 ]
+import functions
 from functions.text2image import TextToImageGenerator
+from functions.style import css
 from IPython.display import display
 import gradio as gr
 import torch
@@ -33,7 +35,7 @@ def on_button_click():
     load_pipeline(model_name)
 with gr.Blocks(css=functions.style.css) as demo:
     gr.Markdown("Stable Diffusion")
-    model_name_gr = gr.Dropdown(container=False, show_label=False, choices=modelnames, elem_classes='ckpt-box', value="digiplay/Realisian_v5")
+    model_name_gr = gr.Dropdown(container=False, show_label=False, choices=modelnames, elem_classes='ckpt-box')
     load_pipeline_gr = gr.Button("Load Model", elem_classes='load')
     with gr.Tab("Txt2Img"):
       prompt_gr = gr.Textbox(label="Prompt", lines=4, show_label=False, elem_classes='prompt')
