@@ -31,7 +31,7 @@ def load_pipeline(model_name):
 def on_button_click():
     model_name = model_name_gr.value
     load_pipeline(model_name)
-with gr.Blocks(css=css) as demo:
+with gr.Blocks(css=functions.style.css) as demo:
     gr.Markdown("Stable Diffusion")
     model_name_gr = gr.Dropdown(container=False, show_label=False, choices=modelnames, elem_classes='ckpt-box', value="digiplay/Realisian_v5")
     load_pipeline_gr = gr.Button("Load Model", elem_classes='load')
