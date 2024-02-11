@@ -19,7 +19,7 @@ class TextToImageGenerator:
     def __init__(self, model_name="digiplay/Realisian_v5"):
         self.model_loader = CustomDiffusionLoader(model_name=model_name)
 
-    def txt2img(self, prompt, negative_prompt, height, width, num_inference_steps, guidance_scale, seed, model_name, scheduler):
+    def txt2img(self, prompt, negative_prompt, height, width, num_inference_steps, guidance_scale, num_images_per_prompt, seed, model_name, scheduler):
         # Seed randomizer
         if seed == "":
             seed = random.randint(0, sys.maxsize)
@@ -41,15 +41,16 @@ class TextToImageGenerator:
         pipe.scheduler = eval(scheduler)
 
         num_inference_steps = int(num_inference_steps)
-
+        pipe.enable_vae_slicing()
+        pipe.enable_xformers_memory_efficient_attention()
         image = pipe(prompt=prompt, negative_prompt=negative_prompt, height=height, width=width,
-                     num_inference_steps=num_inference_steps, guidance_scale=guidance_scale,
-                     generator=generator).images[0]
+                     num_inference_steps=num_inference_steps, 
+                     guidance_scale=guidance_scale,
+                     num_images_per_prompt=num_images_per_prompt,
+                     generator=generator).images
 
         # Convert image to NumPy array
-        image_np = np.array(image)
+        images_np = [np.array(img) for img in image]
+        images_pil = [Image.fromarray(img_np) for img_np in images_np]
 
-        # Convert NumPy array to PIL image
-        image_pil = Image.fromarray(image_np)
-
-        return [image_pil], seed
+        return images_pil, seed
