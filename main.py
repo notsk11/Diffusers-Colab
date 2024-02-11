@@ -46,6 +46,7 @@ scheduler_choices = [
     ("DPM++ 2M SDE Karras", "DPMSolverMultistepScheduler.from_config(pipe.scheduler.config, use_karras_sigmas=True, algorithm_type='sde-dpmsolver++')"),
 ]
 
+
 with gr.Blocks(css=functions.style.css) as demo:
     gr.Markdown("Stable Diffusion")
     model_name_gr = gr.Dropdown(choices=modelnames, container=False, show_label=False, elem_classes='ckpt-box')
@@ -68,10 +69,10 @@ with gr.Blocks(css=functions.style.css) as demo:
           output_image_gr = gr.Gallery(allow_preview=True, preview=True, elem_classes='img-output')
         with gr.Column(elem_classes='colm_b2', variant='default'):
           steps_gr = gr.Slider(elem_classes='steps', minimum=1, maximum=100, step=5, value=10, label="Sampling steps")
-          b_count = gr.Slider(elem_classes='b-count', minimum=1, maximum=10, step=1, value=1, label="Batch count")
+          num_images_per_prompt = gr.Slider(elem_classes='b-count', minimum=1, maximum=10, step=1, value=1, label="Batch count")
           b_size = gr.Slider(elem_classes='b-size', minimum=1, maximum=10, step=1, value=1, label="Batch size")
           output_seed = gr.Textbox(elem_classes='out-seed', label="Current Seed", show_label=False)
-    generate_gr.click(fn=generator.txt2img, inputs=[prompt_gr, negative_gr, height, width, steps_gr, guidance_scale_gr, seed, model_name_gr, scheduler_choice_gr], outputs=[output_image_gr, output_seed])
+    generate_gr.click(fn=generator.txt2img, inputs=[prompt_gr, negative_gr, height, width, steps_gr, guidance_scale_gr, num_images_per_prompt, seed, model_name_gr, scheduler_choice_gr], outputs=[output_image_gr, output_seed])
     load_pipeline_gr.click(on_button_click)
 
 demo.launch(share=True, debug=True)
